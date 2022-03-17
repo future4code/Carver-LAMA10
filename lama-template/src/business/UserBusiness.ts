@@ -48,12 +48,10 @@ export class UserBusiness {
         role,
       });
       return { accessToken };
-    } catch (error: any) {
-      if (error.message.includes("key 'email'")) {
-        throw new BaseError('Email already in use', 409);
+    } catch (error) {
+      if (error instanceof BaseError) {
+        throw new BaseError(error.message, error.code);
       }
-
-      throw new BaseError(error.message, error.statusCode);
     }
   }
 
@@ -83,8 +81,10 @@ export class UserBusiness {
       });
 
       return { accessToken };
-    } catch (error: any) {
-      throw new BaseError(error.statusCode, error.message);
+    } catch (error) {
+      if (error instanceof BaseError) {
+        throw new BaseError(error.message, error.code);
+      }
     }
   }
 

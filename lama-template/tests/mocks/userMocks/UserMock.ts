@@ -1,4 +1,4 @@
-import { User, UserRole } from '../../src/model/User';
+import { User, UserRole } from '../../../src/model/User';
 
 export const adminMock = new User(
   'id_mockado',

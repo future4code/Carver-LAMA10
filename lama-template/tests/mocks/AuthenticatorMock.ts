@@ -6,7 +6,7 @@ export class AuthenticatorMock {
     input: AuthenticationData,
     expiresIn: string = process.env.ACCESS_TOKEN_EXPIRES_IN!
   ): string {
-    return 'token_mockada';
+    return 'token_mockado';
   }
 
   public getData(token: string): AuthenticationData {

@@ -19,7 +19,7 @@ export class BandController {
       const token = await bandBusiness.addBand(input);
 
       res.status(200).send({ token });
-    } catch (error: any) {
+    } catch (error) {
       res.status(400).send({ error: error.message });
     }
 
@@ -28,12 +28,12 @@ export class BandController {
 
   async getBandByName(req: Request, res: Response) {
     try {
-      const name: string = req.body.name;
+      const name: string = req.query.name as string;
 
       const token = await bandBusiness.getBandByName(name);
 
       res.status(200).send({ token });
-    } catch (error: any) {
+    } catch (error) {
       res.status(400).send({ error: error.message });
     }
   }

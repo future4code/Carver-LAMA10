@@ -27,7 +27,7 @@ export class BandsDataBase extends BaseDatabase {
     }
   }
 
-  public async getBand(name: string): Promise<Band> {
+  public async getBandByName(name: string): Promise<Band> {
     const result = await this.getConnection()
       .select('*')
       .from(BandsDataBase.TABLE_NAME)

@@ -7,7 +7,7 @@ import { IdGenerator } from '../services/IdGenerator';
 
 const userBusiness = new BandBusiness(new IdGenerator(), new BandsDataBase());
 
-export class UserController {
+export class BandController {
   async addBand(req: Request, res: Response) {
     try {
       const input: BandDTO = {
@@ -24,5 +24,17 @@ export class UserController {
     }
 
     await BaseDatabase.destroyConnection();
+  }
+
+  async getBandByName(req: Request, res: Response) {
+    try {
+      const name: string = req.body.name;
+
+      const token = await userBusiness.getBandByName(name);
+
+      res.status(200).send({ token });
+    } catch (error: any) {
+      res.status(400).send({ error: error.message });
+    }
   }
 }

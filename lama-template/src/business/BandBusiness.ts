@@ -24,4 +24,14 @@ export class BandBusiness {
       }
     }
   }
+
+  async getBandByName(name: string) {
+    const bandFromDB = await this.bandDataBase.getBandByName(name);
+
+    if (!name) {
+      throw new BaseError('Missing input', 422);
+    }
+
+    return bandFromDB;
+  }
 }

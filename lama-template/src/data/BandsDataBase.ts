@@ -3,7 +3,7 @@ import { Band } from '../model/Band';
 import { BaseDatabase } from './BaseDatabase';
 
 export class BandsDataBase extends BaseDatabase {
-  private static TABLE_NAME = 'LAMA_Bandas';
+  private static TABLE_NAME = 'LAMA_Band';
 
   public async addBand(
     id: string,

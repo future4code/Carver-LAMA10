@@ -5,7 +5,7 @@ import { BaseDatabase } from '../data/BaseDatabase';
 import { BandDTO } from '../model/Band';
 import { IdGenerator } from '../services/IdGenerator';
 
-const userBusiness = new BandBusiness(new IdGenerator(), new BandsDataBase());
+const bandBusiness = new BandBusiness(new IdGenerator(), new BandsDataBase());
 
 export class BandController {
   async addBand(req: Request, res: Response) {
@@ -16,7 +16,7 @@ export class BandController {
         responsible: req.body.responsible,
       };
 
-      const token = await userBusiness.addBand(input);
+      const token = await bandBusiness.addBand(input);
 
       res.status(200).send({ token });
     } catch (error: any) {
@@ -30,7 +30,7 @@ export class BandController {
     try {
       const name: string = req.body.name;
 
-      const token = await userBusiness.getBandByName(name);
+      const token = await bandBusiness.getBandByName(name);
 
       res.status(200).send({ token });
     } catch (error: any) {

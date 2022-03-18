@@ -4,7 +4,8 @@ import { UserInputDTO } from '../src/model/User';
 import { AuthenticatorMock } from './mocks/AuthenticatorMock';
 import { HashManagerMock } from './mocks/HashManagerMock';
 import { IdGeneratorMock } from './mocks/IdGeneratorMock';
-import { userDatabaseMock } from './mocks/userMocks/UserDataBaseMock';
+import { userDatabaseMock } from './mocks/UserDataBaseMock';
+
 
 const userBusinessMock = new UserBusiness(
   new IdGeneratorMock(),

@@ -27,7 +27,7 @@ export class UserController {
       const token = await userBusiness.signup(input);
 
       res.status(200).send({ token });
-    } catch (error: any) {
+    } catch (error) {
       res.status(400).send({ error: error.message });
     }
 
@@ -44,7 +44,7 @@ export class UserController {
       const token = await userBusiness.getUserByEmail(loginData);
 
       res.status(200).send({ token });
-    } catch (error: any) {
+    } catch (error) {
       res.status(400).send({ error: error.message });
     }
 

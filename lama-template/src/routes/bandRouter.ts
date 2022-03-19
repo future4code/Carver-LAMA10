@@ -13,6 +13,8 @@ bandRouter.get('/band', userController.getBandByName);
 
 
 
+
 const showsController = new ShowController()
 
 bandRouter.post('/shows',showsController.addShows);
+bandRouter.get('/get', userController.getBandByName);
